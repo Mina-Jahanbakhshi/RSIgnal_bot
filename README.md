@@ -17,16 +17,35 @@ curl
 Json
 
 To install the required libraries execute the following command :
+
+sudo apt install git -y
 sudo apt install build-essential -y
 sudo apt-get install libcurl4-openssl-dev -y
 
 Build :
 To build the RSIgnal_bot execute the following commands.
+
+git clone https://github.com/Mina-Jahan/RSIgnal_bot.git
+cd RSIgnal_bot/RSIgnal-v1.1/
+
 g++ -c apiclient.cpp  curl.cpp  main.cpp
 g++ apiclient.o  curl.o  main.o -lcurl -lpthread -o RSIgnal
 
 Running the RSIgnal_bot :
  To run this code, tow entries are mandatory, COINPAIR and INTERVAL. For example :
+ 
+ for 1minute RSI:
+ 
 ./RSIgnal BTCUSDT 1m
+
+OR
+For 1 hour RSI:
+
+./RSIgnal BTCUSDT 1h
+
+OR
+for 1 Day RSI:
+
+./RSIgnal BTCUSDT 1D
 
 Authored By : Mina Jahanbakhshi
