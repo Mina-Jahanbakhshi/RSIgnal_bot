@@ -1,5 +1,5 @@
 # RSIgnal_bot
-binance crypro RSI calculator (same as tradingview)
+binance crypto RSI calculator (same as tradingview)
 
 ## Overview
 This code will calculate RSI according to the TradinView and it will be using Binance API. To Compute RSI and have the near exact number as tradingview, the standard formula has been used :
@@ -24,7 +24,7 @@ NOTICE: It is important to maintain an stable internet, without filtering connec
 The following libraries must be installed before building the RSIgnal_bot code.
 ```
 curl
-Json
+nlohmann json parser
 ```
 
 To install the required libraries execute the following command :
@@ -72,6 +72,10 @@ for 1 Day RSI:
 
 ./RSIgnal BTCUSDT 1D
 ```
+
+# NOTICE: Time format for linux system MUST be at UTC time
+
+
 
 ### Authored By :
 Mina Jahanbakhshi
