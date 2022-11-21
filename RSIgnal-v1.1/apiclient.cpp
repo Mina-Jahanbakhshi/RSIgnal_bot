@@ -93,15 +93,15 @@ void apiclient::initiate_rsi(string COINPAIR, string interval)
 
 	cout << "!!!!!!!!!!!!!GOT klines successfully" << endl;
 
-	double change_closes_up[999];
-	double change_closes_down[999];
+	double change_closes_up[kline_num-1];
+	double change_closes_down[kline_num-1];
 
 	cout << "Getting change_calc" << endl;
 	change_calc(ALL_klines_CLOSE, change_closes_up, change_closes_down, kline_num);
 	cout << "change_calc done" << endl;
 
-	double rma_up[986]; // 1000 -14
-	double rma_down[986];
+	double rma_up[kline_num-15];
+	double rma_down[kline_num-15];
 
 	
 	cout << "Getting rma_calc" << endl;
@@ -109,16 +109,16 @@ void apiclient::initiate_rsi(string COINPAIR, string interval)
 	rma_calc(change_closes_down, rma_down, kline_num - 1, 14);
 	cout << "rma_calc done" << endl;
 
-	double RSI[986];
+	double RSI[kline_num-15];
 
-	rsi_calc(rma_up, rma_down, RSI, kline_num - 14, 14);
+	rsi_calc(rma_up, rma_down, RSI, kline_num - 15, 14);
 
-	for (int i = 0; i < kline_num - 14; i++)
+	for (int i = 0; i < kline_num - 15; i++)
 	{
 		cout << COINPAIR << " RSI" << i << "=" << RSI[i] << endl;
 	}//for
 	cout << "executing update_rsi" << endl;
-	update_rsi(COINPAIR, interval, rma_up[984], rma_down[984], 14);
+	update_rsi(COINPAIR, interval, rma_up[kline_num-16], rma_down[kline_num-16], 14);
 
 }//initiate_rsi
 
